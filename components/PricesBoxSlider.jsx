@@ -1,11 +1,7 @@
-"use client";
-
 import Image from 'next/image';
-import { connectToDB } from '@utils/database';
-import User from '@models/user';
 
 
-const PricesBoxSlider = ({ users }) => {
+const PricesBoxSlider = () => {
     
 
   return (
@@ -27,26 +23,10 @@ const PricesBoxSlider = ({ users }) => {
                     height={100}
                 />
             </div>
-             <>
-                {users.map((user) => (
-                    <h1>{user.email}</h1>
-                   ))}
-
-             </>
         </div>
     </div>
   )
 }
 
-export async function getServerSideProps() {
-    await connectToDB()
-    const result = await User.find({});
-    const users = result.map((doc) => {
-    const user = doc.toObject()
-    user._id = user._id.toString()
-    return user
-    })
-    return { props: {users: users}}
-}
 
 export default PricesBoxSlider
