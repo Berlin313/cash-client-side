@@ -1,20 +1,11 @@
 "use client";
 
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { connectToDB } from '@utils/database';
+import User from '@models/user';
 
-const PricesBoxSlider = () => {
 
-    const [prices,  setPrices] = useState([]);
-
-    useEffect(() => {
-     fetch('/api/prices')
-     .then((res) => res.json())
-     .then((data) => {
-        setPrices(data);
-     });
-    
-    }, [])
+const PricesBoxSlider = ({ users }) => {
     
 
   return (
@@ -36,15 +27,26 @@ const PricesBoxSlider = () => {
                     height={100}
                 />
             </div>
-            {prices?.map((priced) => {
-                <li>
-                    <h2>{priced.name}</h2>
-                    <h3>{priced.price}</h3>
-                </li>
-            })}
+             <>
+                {users.map((user) => (
+                    <h1>{user.email}</h1>
+                   ))}
+
+             </>
         </div>
     </div>
   )
+}
+
+export async function getServerSideProps() {
+    await connectToDB()
+    const result = await User.find({});
+    const users = result.map((doc) => {
+    const user = doc.toObject()
+    user._id = user._id.toString()
+    return user
+    })
+    return { props: {users: users}}
 }
 
 export default PricesBoxSlider
