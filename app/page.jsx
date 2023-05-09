@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import BoxServices from '@components/BoxServices';
+import PricesBoxSlider from '@components/PricesBoxSlider';
 
 const Home = () => {
   return (
@@ -23,7 +24,8 @@ const Home = () => {
           cash syria is the best card deller and one of the best proxy provider
           and have amazing and fast `sms - phone` verficayion system
         </p>
-
+        {/* Prices */}
+        <PricesBoxSlider />
         {/* services */}
         <BoxServices />
     </section>

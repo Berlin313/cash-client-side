@@ -7,11 +7,11 @@ const PriceSchema = new Schema({
         required: [true, 'Name is required!']
     },
     price: {
-        type: int,
+        type: Number,
         required: [true, 'price us required!'],
     },
 })
 
-const Price = models.User || model("User", PriceSchema)
+const Price = models.User || model("Price", PriceSchema)
 
 export default Price;
