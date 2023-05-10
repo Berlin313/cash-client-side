@@ -45,6 +45,13 @@ const Nav = () => {
                     <Link href='/top-up' className='black_btn'>
                         Top-up
                     </Link>
+                    <Link
+                        href='/history'
+                        className='black_btn'
+                        
+                        >
+                            History
+                        </Link>
                     {/* cards sell button */}
                     <Link href='/sell-card' className='black_btn'>
                         Sell-cards
@@ -128,6 +135,13 @@ const Nav = () => {
                         onClick={() => setToggleDropdown(false)}
                         >
                             My Profile
+                        </Link>
+                        <Link
+                        href='/history'
+                        className='dropdown_link'
+                        onClick={() => setToggleDropdown(false)}
+                        >
+                            History
                         </Link>
                         <Link 
                         href="/top-up"
