@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { FaCcVisa, FaCcMastercard, FaCcPaypal, FaPlaystation, FaSteam, FaAmazon } from 'react-icons/fa';
-import { MdCardGiftcard } from 'react-icons/md';
 import Select from 'react-select';
 import { useState } from 'react';
 
