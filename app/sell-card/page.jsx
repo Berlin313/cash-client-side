@@ -18,7 +18,32 @@ const SellCard = () => {
   });
 
   const createCard = async (e) => {
+    e.preventDefault();
+    setsubmitting(true);
 
+    try {
+      const response = await fetch('/api/cards/new',
+        {
+          method: "POST",
+          body: JSON.stringify({
+            cards: card.cards,
+            userId: session?.user.id,
+            cashOut: card.cashOut,
+            note: card.note,
+            cardtype: card.cardtype,
+            price: "",
+          })
+        }
+      )
+
+      if(response.ok) {
+        Router.push('/');
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setsubmitting(false);
+    }
   }
 
   return (
