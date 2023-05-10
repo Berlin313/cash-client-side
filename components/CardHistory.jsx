@@ -5,14 +5,7 @@
 const CardHistory = () => {
     return(
         <>
-            <section className="feed">
-                <form className="relative w-full flex-center">
-                    <input className="search_input peer"
-                    type="text"
-                    placeholder="Serch for your card/order">
-                    </input>
-                </form>
-            </section>
+           
         <section className='w-full '>
             <h1 className='head_text text-left'>
                 <span className='blue_gradient'>
