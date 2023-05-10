@@ -75,7 +75,6 @@ const SellForm = ({
           <span clasosName='font-satoshi font-semibold text-base text-gray-700'>
             Your Card/s Code 
           </span>
-         
           <textarea
             rows="3"
             value={card.cards}
@@ -85,6 +84,19 @@ const SellForm = ({
             -XXXX-XXXXXX-XXXX/50$'
             required
             className='form_textarea' 
+          />
+        </label>
+
+        <label>
+          <span clasosName='font-satoshi font-semibold text-base text-gray-700'>
+             Your Notes:(` `) <span className='font-normal'>`if you have any note you want us to know)`:</span>
+          </span>
+          <input
+            value={card.note}
+            onChange={(e) => setcard({...card,
+            note: e.target.value })}
+            required
+            className='form_input' 
           />
         </label>
         <div className='flex-end mx-3 mb-5 gap-4'>

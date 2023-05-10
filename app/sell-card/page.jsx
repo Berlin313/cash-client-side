@@ -14,6 +14,7 @@ const SellCard = () => {
     cashOut: "",
     type: "",
     cardtype: "",
+    note: "",
   });
 
   const createCard = async (e) => {
