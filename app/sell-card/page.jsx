@@ -13,6 +13,7 @@ const SellCard = () => {
     price: "",
     cashOut: "",
     type: "",
+    cardtype: "",
   });
 
   const createCard = async (e) => {
