@@ -11,8 +11,7 @@ const SellForm = ({
        submitting,
        handleSubmit
 }) => {
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [selectedOption2, setSelectedOption2] = useState(null);
+  
   const options = [
     {value: "visa", label: "Visa"},
     {value: "mastercard", label: "Mastercard"},
@@ -58,17 +57,10 @@ const SellForm = ({
             <span className="w-32">Cash out</span>
           </div>
           <div className="grid grid-cols-2">
-            <Select options={options} value={selectedOption} onChange= {
-              e => {
-                setSelectedOption;
-                setcard({...card,cardtype: selectedOption});
-              }
-            } className="w-32 pt-2 " />
-            <Select options={options2} value={selectedOption2}  onChange=
-            {e => {
-              setSelectedOption2;
-              setcard({...card,cashOut: selectedOption2});
-            }} className="w-32 pt-2 "  />
+            <Select options={options} onChange= {(choise) => setcard({...card,cardtype: choise})} 
+            className="w-32 pt-2 " />
+            <Select options={options2} onChange= {(choise) => setcard({...card,cashOut: choise})}
+             className="w-32 pt-2 "  />
           </div>
       </div>  
          <label>
@@ -89,7 +81,7 @@ const SellForm = ({
 
         <label>
           <span clasosName='font-satoshi font-semibold text-base text-gray-700'>
-             Your Notes:(` `) <span className='font-normal'>`if you have any note you want us to know)`:</span>
+             Your Notes:{` `} <span className='font-normal'>if you have any note you want us to know..!</span>
           </span>
           <input
             value={card.note}
