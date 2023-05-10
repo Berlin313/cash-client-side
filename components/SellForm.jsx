@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { FaCcVisa, FaCcMastercard, FaCcPaypal, FaPlaystation, FaSteam, FaAmazon } from 'react-icons/fa';
 import Select from 'react-select';
-import { useState } from 'react';
+
 
 const SellForm = ({
        type,
@@ -28,7 +28,6 @@ const SellForm = ({
    {value: "albarakh", label: "Albarakh"},
    {value: "delar", label: "Delar"}
   ]
-
   return (
     <section className='w-full max-w-full flex-start flex-col'>
         <h1 className='head_text text-left'>
@@ -56,14 +55,14 @@ const SellForm = ({
             <span className="w-32">Cash out</span>
           </div>
           <div className="grid grid-cols-2">
-            <Select options={options} onChange= {(choise) => setcard({...card,cardtype: choise})} 
+            <Select required options={options} onChange= {(choise) => setcard({...card,cardtype: choise})} 
             className="w-32 pt-2 " />
             <Select options={options2} onChange= {(choise) => setcard({...card,cashOut: choise})}
              className="w-32 pt-2 "  />
           </div>
       </div>  
          <label>
-          <span clasosName='font-satoshi font-semibold text-base text-gray-700'>
+          <span className='font-satoshi font-semibold text-base text-gray-700'>
             Your Card/s Code 
           </span>
           <textarea
@@ -79,14 +78,13 @@ const SellForm = ({
         </label>
 
         <label>
-          <span clasosName='font-satoshi font-semibold text-base text-gray-700'>
+          <span className='font-satoshi font-semibold text-base text-gray-700'>
              Your Notes:{` `} <span className='font-normal'>if you have any note you want us to know..!</span>
           </span>
           <input
             value={card.note}
             onChange={(e) => setcard({...card,
             note: e.target.value })}
-            required
             className='form_input' 
           />
         </label>

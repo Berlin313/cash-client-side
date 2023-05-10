@@ -16,19 +16,18 @@ export const POST = async (req) => {
         const newCard = new Card({
             creator: userId,
             codes: cards,
-            cashOut: cashOut,
+            cashOut: cashOut.value,
             note: note,
-            cardtype: cardtype,
-            price: price
+            cardtype: cardtype.value,
+            price: "0"
         })
-
         await newCard.save();
 
         return new Response(JSON.stringify(newCard), {
             status: 201
         })
     } catch (error) {
-        return new Response("Faild to create new order", {
+        return new Response("Faild to create new order:"+error, {
             status: 500
         })
     }

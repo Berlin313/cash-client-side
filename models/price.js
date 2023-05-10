@@ -12,6 +12,6 @@ const PriceSchema = new Schema({
     },
 })
 
-const Price = models.User || model("Prices", PriceSchema)
+const Price = models.Prices || model("Prices", PriceSchema)
 
 export default Price;
